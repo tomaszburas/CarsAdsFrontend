@@ -1,0 +1,8 @@
+{
+  "compilerOptions": {
+    "baseUrl": "../mega-ads-backend",
+    "paths": {
+      "types": ["../mega-ads-backend/types"]
+    }
+  }
+}
