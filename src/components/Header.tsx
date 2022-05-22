@@ -5,7 +5,7 @@ import { Search } from "./Search";
 export const Header = () => {
     return (
         <HeaderWrapper>
-            <Logo><span>mega</span> ads</Logo>
+            <Logo><span className="bold">mega</span> <span className="light">ads</span></Logo>
             <Button text='Add Ads' />
             <Search />
         </HeaderWrapper>
@@ -24,8 +24,11 @@ const HeaderWrapper = styled.header`
 const Logo = styled.h1`
   font-size: 1.5rem;
   color: ${props => props.theme.colors.green};
-  & span {
+  .bold {
     font-weight: 800
+  }
+  .light {
+    font-weight: 200
   }
 `;
 
