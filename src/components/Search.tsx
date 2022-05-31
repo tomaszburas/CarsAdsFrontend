@@ -1,9 +1,26 @@
 import styled from "styled-components";
+import {useDispatch} from "react-redux";
+import { useSelector } from "react-redux";
+import { RootState } from "../redux/store";
+import {ChangeEvent} from "react";
+import {setSearchValue} from "../redux/features/search/searchSlice";
 
 export const Search = () => {
+    const dispatch = useDispatch();
+    const {searchValue} = useSelector((store: RootState) => store.search);
+
+    const handleSearchValue = (e: ChangeEvent<HTMLInputElement>) => {
+        dispatch(setSearchValue(e.target.value));
+    }
+
     return <Wrapper>
         <div className="search">
-            <input type="text" className="searchTerm" placeholder="What are you looking for?" />
+            <input type="text"
+                   className="searchTerm"
+                   placeholder="What are you looking for?"
+                   value={searchValue}
+                   onChange={handleSearchValue}
+            />
                 <button type="submit" className="searchButton">
                     <i className="fa fa-search" />
                 </button>
