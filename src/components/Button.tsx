@@ -1,11 +1,15 @@
 import styled from "styled-components";
+import {Link} from "react-router-dom";
 
 type Props = {
     text: string;
+    to?: string;
 }
 
-export const Button = ({text}: Props) => {
-    return <ButtonStyle>{text}</ButtonStyle>
+export const Button = ({text, to}: Props) => {
+    return to
+        ? <Link to={to}><ButtonStyle>{text}</ButtonStyle></Link>
+        : <ButtonStyle>{text}</ButtonStyle>
 }
 
 const ButtonStyle = styled.button`
