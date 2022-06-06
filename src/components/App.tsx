@@ -11,6 +11,7 @@ export const App = () => {
       <Routes>
           <Route path="/" element={<Map />} />
           <Route path="/add" element={<AddAd />} />
+          <Route path="*" element={<Map />} />
       </Routes>
     </Theme>
   );

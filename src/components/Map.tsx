@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 import { SimpleAdEntity } from "types";
 import { SingleAd } from "./SingleAd";
 import { API_URL } from "../config";
+import { Footer } from "./Footer";
 
 export const Map = () => {
   const { searchValue } = useSelector((store: RootState) => store.search);
@@ -41,6 +42,7 @@ export const Map = () => {
           <p>Loading...</p>
         )}
       </MapContainer>
+      <Footer />
     </MapWrapper>
   );
 };
@@ -51,7 +53,7 @@ const MapWrapper = styled.div`
   background-color: ${(props) => props.theme.colors.green};
 
   .leaflet-container {
-    height: 100%;
+    height: calc(100% - 1.6rem);
   }
 
   .leaflet-popup-content p {

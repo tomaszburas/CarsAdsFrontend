@@ -3,6 +3,7 @@ import {SyntheticEvent, useState} from "react";
 import {geocode} from "../utils/geocoding";
 import {API_URL} from "../config";
 import styled from "styled-components";
+import {Footer} from "./Footer";
 
 export const AddAd = () => {
     const [loading, setLoading] = useState(false);
@@ -71,7 +72,7 @@ export const AddAd = () => {
         </Wrapper>;
     }
 
-    return (
+    return <>
         <FORM onSubmit={saveAd}>
             {err
                 ? <h1 className="error">📣 {err}</h1>
@@ -182,12 +183,14 @@ export const AddAd = () => {
             </p>
             <Button text="Save"/>
         </FORM>
-    );
+        <Footer/>
+    </>;
 }
 
 const FORM = styled.form`
   width: 60%;
   margin: 0 auto;
+  height: calc(100% - 1.6rem);
 
   h1 {
     margin: 1rem 0;
@@ -218,6 +221,10 @@ const FORM = styled.form`
     width: 100%;
     margin-top: 1rem;
   }
+
+  @media screen and (max-width: 1000px) {
+    width: 90%;
+  }
 `
 
 const Wrapper = styled.div`
@@ -236,5 +243,9 @@ const Wrapper = styled.div`
   
   Button {
     text-align: center;
+  }
+
+  @media screen and (max-width: 1000px) {
+    width: 90%;
   }
 `

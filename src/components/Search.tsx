@@ -17,11 +17,11 @@ export const Search = () => {
         <div className="search">
             <input type="text"
                    className="searchTerm"
-                   placeholder="What are you looking for?"
+                   placeholder="Car brand"
                    value={searchValue}
                    onChange={handleSearchValue}
             />
-                <button type="submit" className="searchButton">
+                <button type="submit" className="searchButton" title="Search cars">
                     <i className="fa fa-search" />
                 </button>
         </div>
@@ -32,9 +32,10 @@ const Wrapper = styled.div`
   height: 1.5rem;
   display: flex;
   align-items: center;
+  width: 40%;
+  justify-content: flex-end;
   
   .search {
-    width: 100%;
     display: flex;
   }
 

@@ -4,11 +4,12 @@ import {Link} from "react-router-dom";
 type Props = {
     text: string;
     to?: string;
+    title?: string;
 }
 
-export const Button = ({text, to}: Props) => {
+export const Button = ({text, to, title}: Props) => {
     return to
-        ? <Link to={to}><ButtonStyle>{text}</ButtonStyle></Link>
+        ? <Link to={to} title={title}><ButtonStyle>{text}</ButtonStyle></Link>
         : <ButtonStyle>{text}</ButtonStyle>
 }
 
