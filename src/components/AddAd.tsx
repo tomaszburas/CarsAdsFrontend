@@ -3,11 +3,11 @@ import {SyntheticEvent, useState} from "react";
 import {geocode} from "../utils/geocoding";
 import {API_URL} from "../config";
 import styled from "styled-components";
-import { Navigate } from "react-router-dom";
 
 export const AddAd = () => {
     const [loading, setLoading] = useState(false);
     const [id, setId] = useState('');
+    const [err, setErr] = useState('');
     const [form, setForm] = useState({
         brand: '',
         model: '',
@@ -25,6 +25,12 @@ export const AddAd = () => {
         setLoading(true);
         const {lat, lon} = await geocode(form.address);
 
+        if (lat === null || lon === null) {
+            setErr("We can't find such an address.");
+            setLoading(false);
+            return;
+        }
+
         const res = await fetch(`${API_URL}/ad`, {
             method: 'POST',
             headers: {
@@ -38,8 +44,11 @@ export const AddAd = () => {
         });
         const data = await res.json();
 
-        setId(data.ad.id);
-
+        if (data.success) {
+            setId(data.ad.id);
+        } else {
+            setErr(data.message);
+        }
 
         setLoading(false);
     };
@@ -64,6 +73,9 @@ export const AddAd = () => {
 
     return (
         <FORM onSubmit={saveAd}>
+            {err
+                ? <h1 className="error">📣 {err}</h1>
+                : null}
             <h1>Adding an advertisement</h1>
             <p>
                 <label>
@@ -176,7 +188,7 @@ export const AddAd = () => {
 const FORM = styled.form`
   width: 60%;
   margin: 0 auto;
-  
+
   h1 {
     margin: 1rem 0;
     text-align: center;
@@ -185,11 +197,15 @@ const FORM = styled.form`
     padding: .5rem 0;
     border-radius: .3rem;
   }
-  
+
+  .error {
+    background-color: #802020;
+  }
+
   p {
     margin-bottom: .5rem;
   }
-  
+
   input {
     width: 100%;
     margin-top: .5rem;
@@ -197,7 +213,7 @@ const FORM = styled.form`
     border-radius: .3rem;
     padding: .3rem .5rem;
   }
-  
+
   Button {
     width: 100%;
     margin-top: 1rem;
@@ -207,6 +223,7 @@ const FORM = styled.form`
 const Wrapper = styled.div`
   width: 60%;
   margin: 0 auto;
+  text-align: center;
 
   h1 {
     margin: 1rem 0;
