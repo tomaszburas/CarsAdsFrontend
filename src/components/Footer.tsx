@@ -1,12 +1,18 @@
-import styled from "styled-components"
+import styled from "styled-components";
 
 export const Footer = () => {
   return (
-      <Wrapper>
-          <a href="https://github.com/tomaszburas/Cars-Ads" title="github" target="_blank">@Tomaszenko</a>
-      </Wrapper>
-  )
-}
+    <Wrapper>
+      <a
+        href="https://github.com/tomaszburas/Cars-Ads"
+        title="github"
+        target="_blank"
+      >
+        @Tomaszenko
+      </a>
+    </Wrapper>
+  );
+};
 
 const Wrapper = styled.div`
   position: absolute;
@@ -18,5 +24,5 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: .8rem;
-`
+  font-size: 0.8rem;
+`;

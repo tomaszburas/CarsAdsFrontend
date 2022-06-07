@@ -1,6 +1,6 @@
 import { AdEntity } from "types";
 import { useEffect, useState } from "react";
-import {API_URL} from "../config";
+import { API_URL } from "../config";
 
 interface Props {
   id: string;
@@ -24,14 +24,16 @@ export const SingleAd = ({ id }: Props) => {
 
   return (
     <>
-        <strong>{ad.brand} {ad.model}</strong>
-        {ad.version ? <p>Version: {ad.version}</p> : null}
-        <p>Year: {ad.year}</p>
-        <p>Power: {ad.power} HP</p>
-        <p>Price: {ad.price} PLN</p>
-        <a href={ad.url} target="_blank" rel="noreferrer">
-            Open announcement
-        </a>
+      <strong>
+        {ad.brand} {ad.model}
+      </strong>
+      {ad.version ? <p>Version: {ad.version}</p> : null}
+      <p>Year: {ad.year}</p>
+      <p>Power: {ad.power} HP</p>
+      <p>Price: {ad.price} PLN</p>
+      <a href={ad.url} target="_blank" rel="noreferrer">
+        Open announcement
+      </a>
     </>
   );
 };

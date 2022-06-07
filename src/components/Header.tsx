@@ -8,13 +8,12 @@ export const Header = () => {
     <HeaderWrapper>
       <Logo>
         <Link to="/">
-          <span className="bold">cars</span>{" "}
-          <span className="light">ads</span>
+          <span className="bold">cars</span> <span className="light">ads</span>
         </Link>
       </Logo>
-        <div className="container">
-            <Button text="+" to="/add" title="Add ad"/>
-        </div>
+      <div className="container">
+        <Button text="+" to="/add" title="Add ad" />
+      </div>
       <Search />
     </HeaderWrapper>
   );
@@ -27,13 +26,13 @@ const HeaderWrapper = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  
+
   .container {
     width: calc(100% - 70% - 2rem);
     display: flex;
     justify-content: center;
   }
-  
+
   Button {
     width: 1.8rem;
   }
@@ -43,7 +42,7 @@ const Logo = styled.h1`
   font-size: 1.5rem;
   color: ${(props) => props.theme.colors.green};
   width: 30%;
-  
+
   .bold {
     font-weight: 800;
   }

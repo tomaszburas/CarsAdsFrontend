@@ -3,15 +3,24 @@ import { AddAd } from "./AddAd";
 import { Header } from "./Header";
 import { Map } from "./Map";
 import { Theme } from "./Theme";
+import { RECAPTCHA_KEY } from "../config";
+import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
 
 export const App = () => {
   return (
     <Theme>
       <Header />
       <Routes>
-          <Route path="/" element={<Map />} />
-          <Route path="/add" element={<AddAd />} />
-          <Route path="*" element={<Map />} />
+        <Route path="/" element={<Map />} />
+        <Route
+          path="/add"
+          element={
+            <GoogleReCaptchaProvider reCaptchaKey={RECAPTCHA_KEY}>
+              <AddAd />
+            </GoogleReCaptchaProvider>
+          }
+        />
+        <Route path="*" element={<Map />} />
       </Routes>
     </Theme>
   );

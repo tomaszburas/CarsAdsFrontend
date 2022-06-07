@@ -1,32 +1,35 @@
 import styled from "styled-components";
-import {useDispatch} from "react-redux";
+import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { RootState } from "../redux/store";
-import {ChangeEvent} from "react";
-import {setSearchValue} from "../redux/features/search/searchSlice";
+import { ChangeEvent } from "react";
+import { setSearchValue } from "../redux/features/search/searchSlice";
 
 export const Search = () => {
-    const dispatch = useDispatch();
-    const {searchValue} = useSelector((store: RootState) => store.search);
+  const dispatch = useDispatch();
+  const { searchValue } = useSelector((store: RootState) => store.search);
 
-    const handleSearchValue = (e: ChangeEvent<HTMLInputElement>) => {
-        dispatch(setSearchValue(e.target.value));
-    }
+  const handleSearchValue = (e: ChangeEvent<HTMLInputElement>) => {
+    dispatch(setSearchValue(e.target.value));
+  };
 
-    return <Wrapper>
-        <div className="search">
-            <input type="text"
-                   className="searchTerm"
-                   placeholder="Car brand"
-                   value={searchValue}
-                   onChange={handleSearchValue}
-            />
-                <button type="submit" className="searchButton" title="Search cars">
-                    <i className="fa fa-search" />
-                </button>
-        </div>
+  return (
+    <Wrapper>
+      <div className="search">
+        <input
+          type="text"
+          className="searchTerm"
+          placeholder="Car brand"
+          value={searchValue}
+          onChange={handleSearchValue}
+        />
+        <button type="submit" className="searchButton" title="Search cars">
+          <i className="fa fa-search" />
+        </button>
+      </div>
     </Wrapper>
-}
+  );
+};
 
 const Wrapper = styled.div`
   height: 1.5rem;
@@ -34,14 +37,14 @@ const Wrapper = styled.div`
   align-items: center;
   width: 40%;
   justify-content: flex-end;
-  
+
   .search {
     display: flex;
   }
 
   .searchTerm {
     width: 100%;
-    border: 3px solid ${props => props.theme.colors.green};
+    border: 3px solid ${(props) => props.theme.colors.green};
     border-right: none;
     padding: 4px;
     border-radius: 5px 0 0 5px;
@@ -49,12 +52,12 @@ const Wrapper = styled.div`
   }
 
   .searchButton {
-    padding: 0 .5rem;
-    border: 1px solid ${props => props.theme.colors.green};
-    background: ${props => props.theme.colors.green};
+    padding: 0 0.5rem;
+    border: 1px solid ${(props) => props.theme.colors.green};
+    background: ${(props) => props.theme.colors.green};
     text-align: center;
-    color: ${props => props.theme.colors.purple};
+    color: ${(props) => props.theme.colors.purple};
     border-radius: 0 5px 5px 0;
     cursor: pointer;
   }
-`
+`;

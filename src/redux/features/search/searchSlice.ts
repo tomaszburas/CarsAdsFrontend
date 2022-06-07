@@ -1,25 +1,25 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 interface SearchState {
-    searchValue: string;
+  searchValue: string;
 }
 
 interface SetSearchValue {
-    payload: string;
+  payload: string;
 }
 
 const initialState: SearchState = {
-    searchValue: '',
-}
+  searchValue: "",
+};
 
 export const searchSlice = createSlice({
-    name: 'search',
-    initialState,
-    reducers: {
-        setSearchValue: (state, action: SetSearchValue) => {
-            state.searchValue = action.payload;
-        },
-    }
-})
+  name: "search",
+  initialState,
+  reducers: {
+    setSearchValue: (state, action: SetSearchValue) => {
+      state.searchValue = action.payload;
+    },
+  },
+});
 
-export const {setSearchValue} = searchSlice.actions;
+export const { setSearchValue } = searchSlice.actions;
