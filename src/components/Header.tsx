@@ -7,12 +7,12 @@ export const Header = () => {
   return (
     <HeaderWrapper>
       <Logo>
-        <Link to="/">
+        <Link to="/cars-ad">
           <span className="bold">cars</span> <span className="light">ads</span>
         </Link>
       </Logo>
       <div className="container">
-        <Button text="+" to="/add" title="Add ad" />
+        <Button text="+" to="/cars-ad/add" title="Add ad" />
       </div>
       <Search />
     </HeaderWrapper>

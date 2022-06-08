@@ -35,7 +35,7 @@ export const AddAd = () => {
         await saveAd();
       }
     },
-    [executeRecaptcha]
+    [executeRecaptcha, form]
   );
 
   const saveAd = async () => {

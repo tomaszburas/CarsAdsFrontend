@@ -11,9 +11,9 @@ export const App = () => {
     <Theme>
       <Header />
       <Routes>
-        <Route path="/" element={<Map />} />
+        <Route path="/cars-ad" element={<Map />} />
         <Route
-          path="/add"
+          path="/cars-ad/add"
           element={
             <GoogleReCaptchaProvider reCaptchaKey={RECAPTCHA_KEY}>
               <AddAd />
