@@ -15,7 +15,7 @@ export const Footer = () => {
 };
 
 const Wrapper = styled.div`
-  position: absolute;
+  position: fixed;
   height: 1.6rem;
   bottom: 0;
   background-color: ${(props) => props.theme.colors.blue};
